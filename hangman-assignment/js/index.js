@@ -148,6 +148,6 @@ buttonPlayAgain.addEventListener("click", function () {
     .classList.remove("head", "body", "arms", "legs");
   printSecretWord();
   if (countDownTimer) clearInterval(countDownTimer);
-  document.querySelector(".timer-seconds").textContent = "01:00";
+  timerElement.textContent = "01:00";
   countDownTimer = startTimer();
 });
