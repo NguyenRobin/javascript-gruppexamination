@@ -88,7 +88,7 @@ function printWrongLettersElement() {
 /******************************************************************************/
 function guess() {
   document.addEventListener("keydown", function (event) {
-    console.log(event.key);
+    // console.log(event.key);
     if (secretWord.includes(event.key)) {
       if (!correctWord.includes(event.key)) {
         correctWord.push(event.key);
