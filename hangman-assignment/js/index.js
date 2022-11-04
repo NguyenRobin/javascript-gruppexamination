@@ -4,6 +4,7 @@ const secretWordElement = document.querySelector(".hangman-text");
 const popUpWindowElement = document.querySelector(".pop-up-window");
 const buttonPlayAgain = document.querySelector("button");
 const wrongLetterElement = document.querySelector(".wrong__letters-container");
+const wrongLetterListElement = document.querySelector(".wrong__letters-list");
 const popUpWindowTextElement = document.querySelector(".pop-up-heading");
 const timerElement = document.querySelector(".timer-seconds");
 
@@ -27,7 +28,7 @@ let currentParts = parts.slice(); // makes a copy of the parts array
 const correctWord = []; // stores the correct letters user guesses
 const incorrectLetters = []; // Stores the wrong guess
 
-let countDownTimer; // Needs to be global so we can access it it each function.
+let countDownTimer; // Needs to be in global scope so we can access it it each function.
 
 /******************************************************************************/
 /* PRINTS THE CORRECT LETTER */
@@ -42,21 +43,9 @@ function printSecretWord() {
       secretWordElement.innerHTML += `<span class="hangman-letter">${""}</span>`;
     }
   }
-  // secretWordElement.innerHTML = `${secretWord
-  //   .split("")
-  //   .map(
-  //     (eachLetter) =>
-  //       `<span class="hangman-letter">${
-  //         correctWord.includes(eachLetter) ? eachLetter : ""
-  //       }</span>`
-  //   )
-  //   .join("")}`;
-  console.log(secretWordElement.textContent);
-  console.log(secretWord);
 
   // if guess i correct, user wins
   if (secretWordElement.innerText === secretWord) {
-    console.log(secretWordElement.innerText);
     if (countDownTimer) clearInterval(countDownTimer);
     popUpWindowElement.classList.remove("hidden");
   }
@@ -67,13 +56,18 @@ printSecretWord();
 /* UPDATES EACH WRONG LETTER */
 /******************************************************************************/
 function printWrongLettersElement() {
-  //Display wrong letters
-  wrongLetterElement.innerHTML = `
-  ${incorrectLetters.length > 0 ? "<p>Wrong picks</p>" : ""}
-  ${incorrectLetters.map((eachLetter) => `<span"> ${eachLetter}</span>`)}
-  `;
+  wrongLetterElement.innerHTML = "";
+  if (incorrectLetters.length > 0) {
+    wrongLetterElement.innerHTML += `<p>Wrong picks</p>`;
+    wrongLetterElement.classList.remove("hidden");
+  }
 
-  wrongLetterElement.classList.remove("hidden");
+  for (let i = 0; i < incorrectLetters.length; i++) {
+    wrongLetterListElement.innerHTML += `<li>${incorrectLetters[i]}</li>`;
+    console.log(wrongLetterListElement);
+  }
+
+  // wrongLetterElement.classList.remove("hidden");
 
   // Display parts each time guess is wrong
   let partToShow = currentParts.shift();
@@ -126,10 +120,9 @@ function startTimer() {
 
     // Decrease our timer every sec
     time--;
-    // console.log(time--);
   };
 
-  let time = 10;
+  let time = 60;
 
   tickTack();
 

@@ -183,8 +183,9 @@ body {
   right: 0%;
   display: flex;
   flex-direction: column;
+  font-family: "Eater", cursive;
   text-align: center;
-  border: 3px solid black;
+  /* border: 3px solid black; */
   padding: 1rem 2rem;
   transform: translateX(50%);
   font-size: 1.5rem;
@@ -196,14 +197,15 @@ body {
   font-size: 1.2rem;
 }
 
-/* .wrong__letters-test {
+.wrong__letters-list {
+  display: flex;
+  color: #f2f2f2;
+}
+
+.wrong__letters-list li {
+  font-size: 1.5rem;
   display: flex;
   flex-direction: row;
-  font-weight: bold;
-} */
-
-.wrong__letters-container span {
-  font-size: 1.5rem;
 }
 
 .hangman-letter {
