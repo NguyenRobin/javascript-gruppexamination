@@ -151,3 +151,17 @@ buttonPlayAgain.addEventListener("click", function () {
   timerElement.textContent = "01:00";
   countDownTimer = startTimer();
 });
+
+/******************************************************************************/
+
+/*
+
+GRUPPUPPGIFT AV:
+
+DIANA HOGESCU
+ROBIN NGUYEN
+GEMAL NEBIL HANY
+
+*/
+
+/******************************************************************************/
