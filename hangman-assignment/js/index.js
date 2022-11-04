@@ -55,19 +55,22 @@ printSecretWord();
 /******************************************************************************/
 /* UPDATES EACH WRONG LETTER */
 /******************************************************************************/
+
 function printWrongLettersElement() {
-  wrongLetterElement.innerHTML = "";
+  //
   if (incorrectLetters.length > 0) {
-    wrongLetterElement.innerHTML += `<p>Wrong picks</p>`;
+    document
+      .querySelector(".wrong__letters-container p")
+      .classList.remove("hidden");
     wrongLetterElement.classList.remove("hidden");
   }
 
+  // Prints out a each wrong letter
+  wrongLetterListElement.innerHTML = "";
   for (let i = 0; i < incorrectLetters.length; i++) {
-    wrongLetterListElement.innerHTML += `<li>${incorrectLetters[i]}</li>`;
+    wrongLetterListElement.innerHTML += `<li>${incorrectLetters[i]}, </li>`;
     console.log(wrongLetterListElement);
   }
-
-  // wrongLetterElement.classList.remove("hidden");
 
   // Display parts each time guess is wrong
   let partToShow = currentParts.shift();
@@ -108,7 +111,6 @@ function startTimer() {
   const tickTack = function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0); // Starting min
     const sec = String(time % 60).padStart(2, 0); // Re
-
     timerElement.textContent = `${min}:${sec}`;
 
     // Display popup window if counter is at 0
@@ -122,8 +124,10 @@ function startTimer() {
     time--;
   };
 
+  // start count
   let time = 60;
 
+  //
   tickTack();
 
   // call setInterval function each sec

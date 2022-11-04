@@ -53,6 +53,102 @@ body {
   opacity: 1;
 }
 
+.timer,
+.timer-seconds {
+  font-family: "Eater", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #f2f2f2;
+}
+
+.timer-seconds {
+  font-size: 1.5rem;
+}
+
+.wrong__letters-container {
+  position: absolute;
+  color: #f2f2f2;
+  top: 30%;
+  right: 0%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Eater", cursive;
+  text-align: center;
+  /* border: 3px solid black; */
+  padding: 1rem 2rem;
+  transform: translateX(50%);
+  font-size: 1.5rem;
+}
+
+.wrong__letters-container p {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+}
+
+.wrong__letters-list {
+  display: flex;
+  color: #f2f2f2;
+}
+
+.wrong__letters-list li {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.hangman-letter {
+  display: inline-block;
+  border-bottom: 5px solid #fa6701;
+  font-size: 2rem;
+  font-family: "Eater", cursive;
+  margin: 0.2rem;
+  width: 2rem;
+  /* height: 3rem; */
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pop-up-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 2rem 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.pop-up-window button {
+  color: #fa6701;
+  background-color: #7349ac;
+  border-radius: 1rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-style: none;
+  transition: 0.2s;
+}
+
+.pop-up-window button:hover {
+  transform: scale(1.1);
+}
+
+.pop-up-heading,
+.pop-up-window button {
+  font-family: "Eater", cursive;
+}
+
 .ghost {
   position: relative;
   width: 160px;
@@ -159,102 +255,6 @@ body {
   border-radius: 100%;
   background-color: #000000;
   animation: movingShadow 4s ease infinite;
-}
-
-.timer,
-.timer-seconds {
-  font-family: "Eater", cursive;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1rem;
-  color: #f2f2f2;
-}
-
-.timer-seconds {
-  font-size: 1.5rem;
-}
-
-.wrong__letters-container {
-  position: absolute;
-  color: #f2f2f2;
-  top: 30%;
-  right: 0%;
-  display: flex;
-  flex-direction: column;
-  font-family: "Eater", cursive;
-  text-align: center;
-  /* border: 3px solid black; */
-  padding: 1rem 2rem;
-  transform: translateX(50%);
-  font-size: 1.5rem;
-}
-
-.wrong__letters-container p {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.2rem;
-}
-
-.wrong__letters-list {
-  display: flex;
-  color: #f2f2f2;
-}
-
-.wrong__letters-list li {
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: row;
-}
-
-.hangman-letter {
-  display: inline-block;
-  border-bottom: 5px solid #fa6701;
-  font-size: 2rem;
-  font-family: "Eater", cursive;
-  margin: 0.2rem;
-  width: 2rem;
-  /* height: 3rem; */
-}
-
-.hidden {
-  display: none !important;
-}
-
-.pop-up-window {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 2rem 6rem;
-  border-radius: 5px;
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-}
-
-.pop-up-window button {
-  color: #fa6701;
-  background-color: #7349ac;
-  border-radius: 1rem;
-  padding: 0.8rem;
-  cursor: pointer;
-  border-style: none;
-  transition: 0.2s;
-}
-
-.pop-up-window button:hover {
-  transform: scale(1.1);
-}
-
-.pop-up-heading,
-.pop-up-window button {
-  font-family: "Eater", cursive;
 }
 
 @keyframes float {
