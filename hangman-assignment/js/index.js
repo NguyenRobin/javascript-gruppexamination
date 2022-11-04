@@ -2,10 +2,10 @@
 
 const secretWordElement = document.querySelector(".hangman-text");
 const popUpWindowElement = document.querySelector(".pop-up-window");
+const popUpWindowTextElement = document.querySelector(".pop-up-heading");
 const buttonPlayAgain = document.querySelector("button");
 const wrongLetterElement = document.querySelector(".wrong__letters-container");
 const wrongLetterListElement = document.querySelector(".wrong__letters-list");
-const popUpWindowTextElement = document.querySelector(".pop-up-heading");
 const timerElement = document.querySelector(".timer-seconds");
 
 //  För att toggla SVG:en
@@ -79,7 +79,9 @@ function printWrongLettersElement() {
   if (currentParts.length === 0) {
     if (countDownTimer) clearInterval(countDownTimer);
     popUpWindowElement.classList.remove("hidden");
-    popUpWindowTextElement.textContent = "You lost! 🎃";
+    popUpWindowTextElement.textContent = `You lost! 🎃
+    correct word was: ${secretWord}
+    `;
   }
 }
 
@@ -119,7 +121,9 @@ function startTimer() {
     if (time === 0) {
       clearInterval(countDownTimer);
       popUpWindowElement.classList.remove("hidden");
-      popUpWindowTextElement.textContent = "You lost! 🎃";
+      popUpWindowTextElement.textContent = `You lost! 🎃
+      correct word was: ${secretWord}
+      `;
     }
     // Decrease timer every sec
     time--;

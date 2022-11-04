@@ -144,6 +144,10 @@ body {
   transform: scale(1.1);
 }
 
+.pop-up-heading {
+  text-align: center;
+}
+
 .pop-up-heading,
 .pop-up-window button {
   font-family: "Eater", cursive;
