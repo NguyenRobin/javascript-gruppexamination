@@ -17,6 +17,8 @@ document.querySelector("figure").classList.add("scaffold");
 
 // List of all words that can randomly be shown.
 const wordList = ["pumpkin", "ghost", "witch", "skeleton", "dracula"];
+const correctWord = []; // stores the correct letters user guesses
+const incorrectLetters = []; // Stores the wrong guess
 
 // Random word from our wordList array
 let secretWord = wordList[Math.trunc(Math.random() * wordList.length)];
@@ -25,10 +27,7 @@ console.log(secretWord);
 const parts = ["head", "body", "arms", "legs"];
 let currentParts = parts.slice(); // makes a copy of the parts array
 
-const correctWord = []; // stores the correct letters user guesses
-const incorrectLetters = []; // Stores the wrong guess
-
-let countDownTimer; // Needs to be in global scope so we can access it it each function.
+let countDownTimer;
 
 /******************************************************************************/
 /* PRINTS THE CORRECT LETTER */
@@ -65,11 +64,11 @@ function printWrongLettersElement() {
     wrongLetterElement.classList.remove("hidden");
   }
 
-  // Prints out a each wrong letter
+  // Prints out a each wrong letter to user
   wrongLetterListElement.innerHTML = "";
   for (let i = 0; i < incorrectLetters.length; i++) {
     wrongLetterListElement.innerHTML += `<li>${incorrectLetters[i]}, </li>`;
-    console.log(wrongLetterListElement);
+    // console.log(wrongLetterListElement);
   }
 
   // Display parts each time guess is wrong
@@ -107,28 +106,24 @@ guess();
 /******************************************************************************/
 /* COUNTDOWN TIMER */
 /******************************************************************************/
-function startTimer() {
-  const tickTack = function () {
-    const min = String(Math.trunc(time / 60)).padStart(2, 0); // Starting min
-    const sec = String(time % 60).padStart(2, 0); // Re
-    timerElement.textContent = `${min}:${sec}`;
 
-    // Display popup window if counter is at 0
+function startTimer() {
+  // start count
+  let time = 59;
+
+  const tickTack = function () {
+    const sec = String(time).padStart(2, 0);
+    timerElement.textContent = `00:${sec}`;
+
+    // Players losses
     if (time === 0) {
       clearInterval(countDownTimer);
       popUpWindowElement.classList.remove("hidden");
       popUpWindowTextElement.textContent = "You lost! 🎃";
     }
-
-    // Decrease our timer every sec
+    // Decrease timer every sec
     time--;
   };
-
-  // start count
-  let time = 60;
-
-  //
-  tickTack();
 
   // call setInterval function each sec
   const countDownTimer = setInterval(tickTack, 1000);
@@ -153,5 +148,6 @@ buttonPlayAgain.addEventListener("click", function () {
     .classList.remove("head", "body", "arms", "legs");
   printSecretWord();
   if (countDownTimer) clearInterval(countDownTimer);
+  document.querySelector(".timer-seconds").textContent = "01:00";
   countDownTimer = startTimer();
 });
